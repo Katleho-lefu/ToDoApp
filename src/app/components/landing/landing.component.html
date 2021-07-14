@@ -19,7 +19,7 @@
                 <tr class="mr-5">
                     <th scope="row">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                            class="bi bi-record" viewBox="0 0 16 16" [state]="data.iscomplete" (click)="mark()">
+                            class="bi bi-record" viewBox="0 0 16 16" [state]="data.iscomplete" *ngIf="data.iscomplete==false" (click)="mark()">
                             <path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1A5 5 0 1 0 8 3a5 5 0 0 0 0 10z" />
                         </svg>
             
