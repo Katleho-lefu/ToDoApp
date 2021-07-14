@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TodoService } from 'src/app/services/todo.service';
+import { ToDo } from './../ToDo';
+
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +11,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  data: ToDo={
+    todo:" ",
+    iscomplete: false
+  }
+
+
+  todoArr: any=[]
+
+  constructor(private todo_service: TodoService) { }
 
   ngOnInit(): void {
+    this.getToDo();
+    console.log(this.todoArr);
   }
+
+  //Add method
+  setToDo(){
+      this.todo_service.setToDo(this.data);
+      this.getToDo();
+  }
+
+  //get method
+  getToDo(){
+    this.todo_service.getToDo().subscribe(data => this.todoArr = data);
+  }
+
+  mark(){
+    this.data.iscomplete= !this.data.iscomplete;
+    console.log(this.data.iscomplete)
+  }
+    
+ 
+  
+
+  
 
 }
