@@ -36,7 +36,6 @@ export class TodoService {
   delete(id){
     let array: any[] = JSON.parse(localStorage.getItem('todos'))
     array.splice(id, 1)
-    console.log(array)
     localStorage.setItem('todos', JSON.stringify(array))
     console.log([`You are deleting to do number ${id}`]);
   }
