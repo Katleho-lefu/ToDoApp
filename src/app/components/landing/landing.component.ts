@@ -34,11 +34,19 @@ export class LandingComponent implements OnInit {
 
   //get method
   getToDo(){
-    this.todo_service.getToDo().subscribe(data => this.todoArr = data);
+    this.todo_service.getToDo().subscribe(data => {
+      this.todoArr = data});
   }
 
+  //delete toDo
+  delete(id){
+    this.todo_service.delete(id);
+    this.getToDo();
+  }
+
+
   mark(){
-    this.data.iscomplete= !this.data.iscomplete;
+    this.data.iscomplete = !this.data.iscomplete;
     console.log(this.data.iscomplete)
   }
     

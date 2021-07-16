@@ -8,15 +8,16 @@ import { Observable, of } from 'rxjs';
 })
 export class TodoService {
 
+  array: any[] = JSON.parse(localStorage.getItem('todos'))
   constructor() { }
 
   //add todo to localstorage...remember localstorage stores an array...so you'll have to put your things in an array before setting then in localstorage
   setToDo(data:ToDo){
     // check if theres something in loclstorage already.....if not put your arguments inside an array ang set it[localstorage stores an array of strings only]
     if(JSON.parse(localStorage.getItem('todos'))==null){
-      let todoArr: any=[];
-      todoArr.push(data)
-      localStorage.setItem('todos', JSON.stringify(todoArr))
+      let array: any=[];
+      array.push(data)
+      localStorage.setItem('todos', JSON.stringify(array))
     }
     //else get them from localstorage and put them inside an array and add your new changes to the array and set them again
     else{
@@ -29,6 +30,15 @@ export class TodoService {
   //get ToDos
   getToDo():Observable<any[]>{
     return of (JSON.parse(localStorage.getItem('todos')))
+  }
+
+  //delete ToDo
+  delete(id){
+    let array: any[] = JSON.parse(localStorage.getItem('todos'))
+    array.splice(id, 1)
+    console.log(array)
+    localStorage.setItem('todos', JSON.stringify(array))
+    console.log([`You are deleting to do number ${id}`]);
   }
 
 }
