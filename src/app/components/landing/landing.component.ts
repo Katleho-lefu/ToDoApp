@@ -45,9 +45,9 @@ export class LandingComponent implements OnInit {
   }
 
 
-  mark(){
-    this.data.iscomplete = !this.data.iscomplete;
-    console.log(this.data.iscomplete)
+  mark(id){
+    this.todo_service.mark(id)
+    this.getToDo();
   }
     
  
