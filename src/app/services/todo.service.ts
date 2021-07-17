@@ -40,13 +40,12 @@ export class TodoService {
     console.log([`You are deleting to do number ${id}`]);
   }
 
-  //mark
+  //mark ToDo
   mark(id){
     let array: any[] = JSON.parse(localStorage.getItem('todos'))
-    array.forEach(item=>{
-      item==id;
-      item.iscomplete=!item.iscomplete;
-    })
+      array.forEach(item=>{
+        item.iscomplete=!item.iscomplete;
+      })
     localStorage.setItem('todos', JSON.stringify(array))
   }
 

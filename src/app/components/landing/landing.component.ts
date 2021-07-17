@@ -44,7 +44,7 @@ export class LandingComponent implements OnInit {
     this.getToDo();
   }
 
-
+  //mark toDo
   mark(id){
     this.todo_service.mark(id)
     this.getToDo();
