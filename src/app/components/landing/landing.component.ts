@@ -46,7 +46,9 @@ export class LandingComponent implements OnInit {
 
   //mark toDo
   mark(id){
-    this.todoArr[id].iscomplete=!this.todoArr[id].iscomplete;
+    // this.todoArr[id].iscomplete=!this.todoArr[id].iscomplete;
+    this.todo_service.mark(id);
+    this.getToDo();
   }
     
  

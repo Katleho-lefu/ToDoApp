@@ -12,7 +12,7 @@ export class TodoService {
   constructor() { }
 
   //add todo to localstorage...remember localstorage stores an array...so you'll have to put your things in an array before setting then in localstorage
-  setToDo(data:ToDo){
+  setToDo(data:any){
     // check if theres something in loclstorage already.....if not put your arguments inside an array ang set it[localstorage stores an array of strings only]
     if(JSON.parse(localStorage.getItem('todos'))==null){
       let array: any=[];
@@ -42,10 +42,8 @@ export class TodoService {
 
   //mark ToDo
   mark(id){
-    let array: any[] = JSON.parse(localStorage.getItem('todos'))
-      array.forEach(item=>{
-        item.iscomplete=!item.iscomplete;
-      })
+    let array: any[] = JSON.parse(localStorage.getItem('todos'));
+    array[id].iscomplete=!array[id].iscomplete;
     localStorage.setItem('todos', JSON.stringify(array))
   }
 
