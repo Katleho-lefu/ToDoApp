@@ -12,11 +12,6 @@ export class AppComponent implements OnInit {
 
   title = 'bootstrap4Dylut';
 
-  ngOnInit (): void {
-    // testing JQUERY document ready
-    // $(document).ready(function () {
-    //   console.log('hello world')
-    // });
-  }
+  ngOnInit (): void {}
 
 }
